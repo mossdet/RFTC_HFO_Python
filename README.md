@@ -7,4 +7,4 @@ Analysis of the connectivity between sEEG covered brain areas before and after t
 ### The anatomical connectivity is determined by MRI analysis
 
 ### 1.Localizing SEEG electrodes in the FreeSurfer average brain:
-![Alt-Text](/Images/SEEG_Electrodes_Avg_Brain.png)
+![Alt-Text](/Images/1_SEEG_in_Avg_Brain.png)
