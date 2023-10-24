@@ -23,6 +23,7 @@ def read_channel_features(feat_table_fn, pat_name, zone_name):
     bp_feat_table['hemis'] = np.array(charact_table['rftcHemis'] > 0)
     bp_feat_table['fconn'] = np.array(charact_table['rftcConn'] > 0)
     bp_feat_table['ei'] = np.array(charact_table['highEI'] > 0)
+    bp_feat_table['outcome'] = np.array(charact_table['outcome'])
 
     # Copy numpy arrays with feature values
     unip_table_a = {}

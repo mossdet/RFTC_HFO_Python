@@ -9,6 +9,7 @@ workspacePath = path[:cutIdx]
 images_path = workspacePath + os.path.sep + 'Images' + os.path.sep
 data_path = workspacePath + os.path.sep + 'Data' + os.path.sep
 eeg_path = data_path + 'EEG' + os.path.sep
+micromed_eeg_path = "F:/ForschungsProjekte/RFTC/Project_Files/PatientFilesMicromed/AllPatients/"
 coordinates_path = data_path + 'Coordinates' + os.path.sep
 characterization_paths = data_path + 'Characterization' + os.path.sep
 
@@ -26,6 +27,10 @@ def get_data_path():
 
 def get_eeg_path():
     return eeg_path
+
+
+def get_micromed_eeg_path():
+    return micromed_eeg_path
 
 
 def get_coordinates_path():

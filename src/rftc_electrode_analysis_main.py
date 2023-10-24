@@ -2,22 +2,24 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 import mne
 from get_paths import *
 from get_data_lists import *
 from avg_brain_plotting import plot_seeg_electrodes_3d
 from read_channel_features import *
 from read_channloc_table import *
+from neo.io import MicromedIO
 
 
-pat_files = get_pre_rftc_files()
-sel_pats = range(1, len(pat_files))
+pat_files = get_pre_rftc_files()  # get_post_rftc_files()  # get_pre_rftc_files()
+sel_pats = range(len(pat_files))
 # sel_pats = [3, 12, 14, 16, 18, 19, 20]
 all_zones = ["All", "Site", "Structure", "Lobe",
              "Hemisphere", "Func.Connected", "High EI"]
 
-# sel_pats = [19]
-# all_zones = ["Structure"]
+# sel_pats = [5]
+all_zones = ["All"]
 
 for pi in sel_pats:
     for zi in range(len(all_zones)):
@@ -31,6 +33,11 @@ for pi in sel_pats:
         feat_table_post_fn = get_charact_paths() + "GroupCharacterization_FlexK_Post.xls"
 
         # Read EEG
+        um_eeg_fn = get_micromed_eeg_path() + pat_name + '.trc'
+        um_reader = MicromedIO(um_eeg_fn)
+        print(pat_name+',', um_reader.eeg_date)
+        continue
+
         raw = mne.io.read_raw_brainvision(eeg_fn)
 
         # Read channels and their coordinates, "MNI", "T1preScannerBased"
